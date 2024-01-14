@@ -2,10 +2,14 @@
     "rose-pine/neovim", 
     name = "rose-pine",
     opts = {
-      variant = "dawn",
-      styles = { bold = false },
+      variant = "main", -- auto, main, moon or dawn
+      styles = { bold = true, italic = true, transparency = true },
     },
-    config = function()
+    config = function(_, opts)
+      print(opts.variant)
+      require("rose-pine").setup(
+        opts
+      )
       vim.cmd.colorscheme("rose-pine")
     end
   }
