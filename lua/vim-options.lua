@@ -6,3 +6,6 @@ vim.cmd.set("relativenumber")
 
 vim.g.mapleader = " "
 
+-- Copy to clipboard
+vim.keymap.set('v', '<leader>y', '"+y')
+
