@@ -1,10 +1,11 @@
-  return { 
-    "rose-pine/neovim", 
+  return {
+    "rose-pine/neovim",
     name = "rose-pine",
     opts = {
       variant = "main", -- auto, main, moon or dawn
-      styles = { bold = true, italic = true, transparency = true },
+      styles = { bold = true, italic = true, transparency = false },
     },
+    priority=9999,
     config = function(_, opts)
       print(opts.variant)
       require("rose-pine").setup(
