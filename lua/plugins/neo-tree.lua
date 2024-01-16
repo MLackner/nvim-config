@@ -12,6 +12,6 @@ return {
       close_if_last_window = true,
     })
 
-    vim.keymap.set("n", "<leader>e", ":Neotree reveal<CR>")
+    vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
   end,
 }
