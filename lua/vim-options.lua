@@ -9,4 +9,3 @@ vim.g.mapleader = " "
 
 -- Copy to clipboard
 vim.keymap.set('v', '<leader>y', '"+y')
-
