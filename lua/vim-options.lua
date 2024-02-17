@@ -9,3 +9,6 @@ vim.g.mapleader = " "
 
 -- Copy to clipboard
 vim.keymap.set('v', '<leader>y', '"+y')
+
+-- Additional treesitter settings
+vim.treesitter.language.register("html", "jinja")

@@ -16,7 +16,6 @@ return {
       highlight = { enabled = true },
       indent = { enabled = true },
     })
-    vim.treesitter.language.register("html", "jinja2")
   end,
 }
 
