@@ -16,6 +16,7 @@ return {
           "pyright",
           "ruff_lsp",
           "html",
+          "gopls",
           "emmet_language_server",
         },
       })
@@ -54,13 +55,16 @@ return {
       lspconfig.emmet_language_server.setup({
         filetypes = { "html", "jinja" },
       })
+      lspconfig.gopls.setup({
+        filetypes = { "go" },
+      })
 
       vim.keymap.set("n", "gd", vim.lsp.buf.declaration, {})
       vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
       vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "D", vim.lsp.buf.type_definition, {})
+      vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set({ "n", "v" }, "<leader>F", function()

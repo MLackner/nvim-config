@@ -12,6 +12,7 @@ return {
         "html",
         "htmldjango",
         "css",
+        "go",
       },
       highlight = { enabled = true },
       indent = { enabled = true },
