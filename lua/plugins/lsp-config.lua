@@ -16,8 +16,11 @@ return {
           "pyright",
           "ruff_lsp",
           "html",
+          "htmx",
           "gopls",
+          "templ",
           "emmet_language_server",
+          "tailwindcss",
         },
       })
     end,
@@ -50,14 +53,29 @@ return {
       lspconfig.ruff_lsp.setup({})
       lspconfig.html.setup({
         capabilities = capabilities,
-        filetypes = { "html", "jinja" },
+        filetypes = { "html", "jinja", "templ" },
       })
       lspconfig.emmet_language_server.setup({
-        filetypes = { "html", "jinja" },
+        filetypes = { "html", "jinja", "templ" },
       })
       lspconfig.gopls.setup({
         filetypes = { "go" },
       })
+      lspconfig["templ"].setup({
+        filetypes = { "templ" },
+        capabilities = capabilities,
+      })
+      lspconfig.htmx.setup({
+        filetypes = { "templ" },
+        capabilities = capabilities,
+      })
+      lspconfig.tailwindcss.setup({
+        filetypes = { "templ" },
+        capabilities = capabilities,
+        init_options = { userLanguages = { templ = "html" } },
+      })
+
+      vim.filetype.add({ extension = { templ = "templ" } })
 
       vim.keymap.set("n", "gd", vim.lsp.buf.declaration, {})
       vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})

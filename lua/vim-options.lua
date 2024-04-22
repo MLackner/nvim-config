@@ -11,4 +11,4 @@ vim.g.mapleader = " "
 vim.keymap.set('v', '<leader>y', '"+y')
 
 -- Additional treesitter settings
-vim.treesitter.language.register("html", "jinja")
+vim.treesitter.language.register("html", "jinja", "templ")
