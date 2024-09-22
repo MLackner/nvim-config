@@ -12,6 +12,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "julials",
           "lua_ls",
           "pyright",
           "ruff_lsp",
@@ -42,8 +43,16 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      local on_attach = function(_, bufnr) -- we do not need the 'client' argument
+        vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+      end
+
       local lspconfig = require("lspconfig")
 
+      lspconfig.julials.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       })
