@@ -11,7 +11,7 @@ return {
 		priority = 22, -- load after mason
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ruff" },
+				ensure_installed = { "lua_ls", "pyright", "ruff", "gopls" },
 			})
 		end,
 	},
@@ -41,6 +41,17 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.ruff.setup({})
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+            },
+            staticcheck = true,
+          },
+        },
+      })
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.declaration, {})
 			vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
